@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- AirBalance v3.73.007 · built by eligrt -->
+<!-- AirBalance v3.73.008 · built by eligrt -->
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -65,7 +65,7 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--text);min-heigh
 .page-footer .spacer{flex:0 0 0}
 
 /* INTRO SPLASH (same pattern as LSA Toolbox) */
-#intro{position:fixed;top:0;left:0;right:0;margin:0 auto;width:100%;height:100vh;height:100svh;z-index:1100;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .32s ease-in-out;cursor:pointer}
+#intro{position:fixed;top:0;left:0;right:0;margin:0 auto;width:100%;height:100vh;height:100svh;height:var(--app-h,100svh);z-index:1100;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity .32s ease-in-out;cursor:pointer}
 #intro.fade{opacity:0;pointer-events:none}
 #intro.gone{display:none}
 .sp-logo{width:112px;height:112px;border-radius:26px;border:1.5px solid var(--gold);overflow:hidden;background:var(--paper)}
@@ -79,7 +79,7 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--text);min-heigh
 .sp-skip{position:absolute;bottom:52px;font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase}
 
 /* AIRCRAFT CHOOSER */
-#splash{position:fixed;top:0;left:0;right:0;margin:0 auto;width:100%;height:100vh;height:100svh;z-index:999;background:var(--paper);display:flex;flex-direction:column;transition:opacity .4s}
+#splash{position:fixed;top:0;left:0;right:0;margin:0 auto;width:100%;height:100vh;height:100svh;height:var(--app-h,100svh);z-index:999;background:var(--paper);display:flex;flex-direction:column;transition:opacity .4s}
 #splash.hide{opacity:0;pointer-events:none}
 .splash-scroll{flex:1;overflow-y:auto;padding:16px 14px;display:flex;align-items:center}
 .splash-wrap{max-width:420px;width:100%;margin:0 auto}
@@ -335,6 +335,9 @@ button.lsa-foot-slot{cursor:pointer;padding:8px 0;}
 .lsa-foot-reload{grid-column:3;justify-self:end;background:none;border:0;padding:8px 0;margin:0;font-family:var(--font-ui,'IBM Plex Sans Hebrew',sans-serif);font-size:11px;letter-spacing:.02em;
   color:var(--ink-muted,#5a4a3a);text-decoration:underline;text-underline-offset:2px;opacity:.75;cursor:pointer;white-space:nowrap;}
 .lsa-foot-reload:active{opacity:.4;}
+/* v3.73.008: main-screen footer pinned to the real bottom, content padded above it */
+body>.lsa-foot{position:fixed;left:0;right:0;bottom:0;margin:0 auto;width:100%;max-width:430px;z-index:90;}
+body{padding-bottom:calc(var(--lsa-foot-h) + var(--lsa-foot-pad));}
 .lsa-skip{position:absolute;left:0;right:0;bottom:calc(var(--lsa-foot-h) + var(--lsa-foot-pad) + 14px);text-align:center;font-family:var(--font-mono,var(--mono,'JetBrains Mono',monospace));font-size:9px;letter-spacing:.18em;color:var(--ink-faint,#8a7a5a);text-transform:uppercase;pointer-events:none;}
 #splash.lobby .lsa-skip{display:none;}
 /* header clock: time on top, UTC label beneath (all apps) */
@@ -355,7 +358,7 @@ button.lsa-foot-slot{cursor:pointer;padding:8px 0;}
   <div class="sp-line1" id="spLine1"></div>
   <div class="sp-line2" id="spLine2">TEXAN 570 ISR &middot; HARMONY SA</div>
   <div class="sp-skip lsa-skip">tap to skip</div>
-  <div class="lsa-foot sp" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.007 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
+  <div class="lsa-foot sp" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.008 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
 </div>
 
 <!-- AIRCRAFT CHOOSER -->
@@ -396,7 +399,7 @@ button.lsa-foot-slot{cursor:pointer;padding:8px 0;}
     </div>
   </div>
   </div>
-  <div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.007 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
+  <div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.008 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
 </div>
 
 <!-- APP -->
@@ -689,9 +692,13 @@ button.lsa-foot-slot{cursor:pointer;padding:8px 0;}
     &#1492;&#1491;&#1508;&#1505;&#1492; / &#1513;&#1497;&#1514;&#1493;&#1507;
   </button>
 </div>
-<div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot" id="launchCounter"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.007 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="lsaReload()">טען מחדש</button></div>
+<div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot" id="launchCounter"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.008 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="lsaReload()">טען מחדש</button></div>
 <div id="spinner"><div class="spin"></div></div>
 
+<script>
+function setAppHeight(){var ios=window.navigator.standalone===true;var h=ios?Math.max(window.innerHeight,screen.height):window.innerHeight;document.documentElement.style.setProperty('--app-h',h+'px');}
+setAppHeight();window.addEventListener('resize',setAppHeight);window.addEventListener('orientationchange',function(){setTimeout(setAppHeight,300);});
+</script>
 <script>
 /* LSA-ALIGN v1 JS START */
 async function lsaReload(){

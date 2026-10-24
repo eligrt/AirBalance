@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- AirBalance v3.73.010 · built by eligrt -->
+<!-- AirBalance v3.73.011 · built by eligrt -->
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -363,7 +363,9 @@ button.lsa-foot-slot{cursor:pointer;padding:8px 0;}
 .lsa-foot-reload{font-family:'IBM Plex Sans Hebrew',sans-serif}
 .lsa-hdr.hdr-fam .hdr-clock-lbl{font-size:9px;letter-spacing:.22em;opacity:.75}
 /* LSA-ALIGN v1 END */
-/* v3.73.010: main-screen footer pinned to the real bottom, content padded above it (app-specific, kept outside the shared block) */
+/* v3.73.011: while the cream intro splash is up, html/body are cream so the iPhone status bar fade is cream, not navy */
+html:has(#intro:not(.gone)),body:has(#intro:not(.gone)){background:var(--paper);}
+/* v3.73.011: main-screen footer pinned to the real bottom, content padded above it (app-specific, kept outside the shared block) */
 body>.lsa-foot{position:fixed;left:0;right:0;bottom:0;margin:0 auto;width:100%;max-width:430px;z-index:90;}
 body{padding-bottom:calc(var(--lsa-foot-h) + var(--lsa-foot-pad));}
 </style>
@@ -378,7 +380,7 @@ body{padding-bottom:calc(var(--lsa-foot-h) + var(--lsa-foot-pad));}
   <div class="sp-line1" id="spLine1"></div>
   <div class="sp-line2" id="spLine2">TEXAN 570 ISR &middot; HARMONY SA</div>
   <div class="sp-skip lsa-skip">tap to skip</div>
-  <div class="lsa-foot sp" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.010 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
+  <div class="lsa-foot sp" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.011 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
 </div>
 
 <!-- AIRCRAFT CHOOSER -->
@@ -419,7 +421,7 @@ body{padding-bottom:calc(var(--lsa-foot-h) + var(--lsa-foot-pad));}
     </div>
   </div>
   </div>
-  <div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.010 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
+  <div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.011 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="event.stopPropagation();lsaReload()">טען מחדש</button></div>
 </div>
 
 <!-- APP -->
@@ -712,7 +714,7 @@ body{padding-bottom:calc(var(--lsa-foot-h) + var(--lsa-foot-pad));}
     &#1492;&#1491;&#1508;&#1505;&#1492; / &#1513;&#1497;&#1514;&#1493;&#1507;
   </button>
 </div>
-<div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot" id="launchCounter"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.010 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="lsaReload()">טען מחדש</button></div>
+<div class="lsa-foot" dir="ltr"><span class="lsa-foot-slot" id="launchCounter"></span><span class="lsa-foot-ver">AirBalance &middot; v3.73.011 &middot; built by <a href="https://eligrt.github.io">eligrt</a></span><button type="button" class="lsa-foot-reload" onclick="lsaReload()">טען מחדש</button></div>
 <div id="spinner"><div class="spin"></div></div>
 
 <script>
